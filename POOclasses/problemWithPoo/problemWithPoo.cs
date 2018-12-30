@@ -7,6 +7,13 @@ namespace Course
         public double A;
         public double B;
         public double C;
+
+        // criação de um metódo para a classe Triangulo, que calcula a Area.
+        public double Area()
+        {
+            double p = (A + B + C) / 2.0;
+            return Math.Sqrt((p) * (p - A) * (p - B) * (p - C));
+        }
     }
 
     class Program 
@@ -30,11 +37,8 @@ namespace Course
             y.B = double.Parse(Console.ReadLine());
             y.C = double.Parse(Console.ReadLine());
 
-            double p = (x.A + x.B + x.C) / 2.0;
-            double areaX = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
-
-            p = (y.A + y.B + y.C) / 2.0;
-            double areaY = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
+            double areaX = x.Area();
+            double areaY = y.Area();
 
             Console.WriteLine($"Área de x = {areaX:F4}");
             Console.WriteLine($"Área de y = {areaY:F4}");
