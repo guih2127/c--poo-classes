@@ -1,0 +1,11 @@
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\bin\Debug\netcoreapp2.1\Recap.deps.json
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\bin\Debug\netcoreapp2.1\Recap.runtimeconfig.json
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\bin\Debug\netcoreapp2.1\Recap.runtimeconfig.dev.json
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\bin\Debug\netcoreapp2.1\Recap.dll
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\bin\Debug\netcoreapp2.1\Recap.pdb
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.csprojAssemblyReference.cache
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.csproj.CoreCompileInputs.cache
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.AssemblyInfoInputs.cache
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.AssemblyInfo.cs
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.dll
+C:\Users\Guilherme\Documents\dev\praticas-de-programacao\cursoPoo\Recap\Recap\obj\Debug\netcoreapp2.1\Recap.pdb
