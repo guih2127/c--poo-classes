@@ -11,17 +11,8 @@ namespace Course
 
         public Produto()
         {
-
+            Quantidade = 10;
         }
-
-        public Produto(string nome, double preco, int quantidade)
-        {
-            Nome = nome;
-            Preco = preco;
-            Quantidade = quantidade;
-        }
-        // Definição do CONSTRUTOR da nossa classe. Definimos que para criar uma instância
-        // da classe Produto, precisamos passar estes três parâmetros.
 
         public Produto(string nome, double preco)
         {
@@ -35,6 +26,16 @@ namespace Course
         // devem possuir argumentos diferentes para funcionar.
         // No nosso caso, queremos um modo de permitir que o usuário digite apenas o nome e o preço
         // do produto, e inicializá-lo automaticamente com a quantidade 0.
+
+        public Produto(string nome, double preco, int quantidade) : this(nome, preco)
+        {
+            Quantidade = quantidade;
+        }
+        // Definição do CONSTRUTOR da nossa classe. Definimos que para criar uma instância
+        // da classe Produto, precisamos passar estes três parâmetros.
+        // Com a palavra THIS, que faz referência ao próprio objeto, conseguimos reaproveitar construtores.
+        // Inves de colocarmos as variáveis dentro do construtor de três argumentos, aproveitamos as variáveis
+        // já definidas no construtor que leva dois argumentos, utilizando a palavra this e passando os parâmetros.
 
         public double ValorTotalEstoque()
         {
