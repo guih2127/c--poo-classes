@@ -9,6 +9,11 @@ namespace Course
         public double Preco;
         public int Quantidade;
 
+        public Produto()
+        {
+
+        }
+
         public Produto(string nome, double preco, int quantidade)
         {
             Nome = nome;
@@ -62,8 +67,6 @@ namespace Course
     {
         static void Main(string[] args)
         {
-
-
             Console.Write("Digite o nome do produto: ");
             string nome = Console.ReadLine();
 
@@ -82,6 +85,17 @@ namespace Course
             // Com a sobrecarga que fizemos na classe, utilizando 2 construtores, podemos agora
             // instanciar a classe informando apenas nome e preço.
 
+            Produto p3 = new Produto
+            {
+                Nome = "Nuggets",
+                Preco = 30.00,
+                Quantidade = 20,
+            };
+            // Sintaxe alternativa para instanciar uma classe. Podemos instanciá-la
+            // assim se a classe não tiver nenhum construtor definido (ou seja, apenas o padrão). Porém,
+            // se tivermos um construtor definido, precisaremos de criar um que leve 0 argumentos para poder
+            // utilizar essa sintaxe.
+
             Console.WriteLine("Dados do produto: {0}", p);
 
             p.AdicionarProdutos(5);
@@ -89,6 +103,8 @@ namespace Course
 
             p.RemoverProdutos(5);
             Console.WriteLine(p);
+
+            Console.WriteLine(p3);
         }
     }
 }
