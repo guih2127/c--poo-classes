@@ -5,20 +5,20 @@ namespace Course
 {
     class Produto
     {
-        public string Nome;
-        public double Preco;
-        public int Quantidade;
+        private string _nome;
+        private double _preco;
+        private int _quantidade;
 
         public Produto()
         {
-            Quantidade = 10;
+
         }
 
         public Produto(string nome, double preco)
         {
-            Nome = nome;
-            Preco = preco;
-            Quantidade = 0; // Essa linha é dispensável, automaticamente, a quantidade seria 0
+            _nome = nome;
+            _preco = preco;
+            _quantidade = 0; // Essa linha é dispensável, automaticamente, a quantidade seria 0
             // de qualquer forma.
         }
         // Utilizamos o conceito de SOBRECARGA para o nosso construtor. Sobrecarga consiste em
@@ -29,7 +29,7 @@ namespace Course
 
         public Produto(string nome, double preco, int quantidade) : this(nome, preco)
         {
-            Quantidade = quantidade;
+            _quantidade = quantidade;
         }
         // Definição do CONSTRUTOR da nossa classe. Definimos que para criar uma instância
         // da classe Produto, precisamos passar estes três parâmetros.
@@ -37,28 +37,51 @@ namespace Course
         // Inves de colocarmos as variáveis dentro do construtor de três argumentos, aproveitamos as variáveis
         // já definidas no construtor que leva dois argumentos, utilizando a palavra this e passando os parâmetros.
 
+        public string GetNome()
+        {
+            return _nome;
+        }
+
+        public void SetNome(string nome)
+        {
+            if (nome != null && nome.Length > 1)
+            {
+                _nome = nome;
+            }
+        }
+
+        public double GetPreco()
+        {
+            return _preco;
+        }
+
+        public double GetQuantidade()
+        {
+            return _quantidade;
+        }
+
         public double ValorTotalEstoque()
         {
-            return (Quantidade * Preco);
+            return (_quantidade * _preco);
         }
 
         public void AdicionarProdutos(int qte)
         {
-            Quantidade += qte;
+            _quantidade += qte;
         }
 
         public void RemoverProdutos(int qte)
         {
-            Quantidade -= qte;
+            _quantidade -= qte;
         }
         
         public override string ToString()
         {
-            return Nome + 
+            return _nome + 
             ", $" + 
-            Preco + 
+            _preco + 
             ", " + 
-            Quantidade + 
+            _quantidade + 
             " unidades, Total: $" + 
             ValorTotalEstoque();
         }
@@ -86,26 +109,41 @@ namespace Course
             // Com a sobrecarga que fizemos na classe, utilizando 2 construtores, podemos agora
             // instanciar a classe informando apenas nome e preço.
 
+            /*             
             Produto p3 = new Produto
             {
                 Nome = "Nuggets",
                 Preco = 30.00,
                 Quantidade = 20,
-            };
+            }; */
             // Sintaxe alternativa para instanciar uma classe. Podemos instanciá-la
             // assim se a classe não tiver nenhum construtor definido (ou seja, apenas o padrão). Porém,
             // se tivermos um construtor definido, precisaremos de criar um que leve 0 argumentos para poder
             // utilizar essa sintaxe.
 
-            Console.WriteLine("Dados do produto: {0}", p);
+            Console.WriteLine("Dados do produto: {0}, {1}, {2}", p.GetNome(), p.GetPreco(), p.GetQuantidade());
+
+            p.SetNome("TV 4K"); // Alterando o nome da instância da classe, com o metódo SetNome()
 
             p.AdicionarProdutos(5);
-            Console.WriteLine(p);
+            Console.WriteLine(p.GetNome());
 
             p.RemoverProdutos(5);
-            Console.WriteLine(p);
+            Console.WriteLine(p.GetNome());
 
-            Console.WriteLine(p3);
+            // Como nossa quantidade está como public, um usuário pode tranquilamente
+            // digitar p.Quantidade = -10 e isso irá funcionar. Para impedir isso, utilizamos
+            // o conceito de ENCAPSULAMENTO, que consiste em não expôr os dados internos
+            // para o usuário. Para efetuar o processo de encapsulamento, os atributos desejados
+            // devem ser definidos como PRIVATE. Para acessar os modificadores é necessário
+            // utilizar SET e GET.
+
+            // Portanto, como não é mais possível acessar os atributos da instância diretamente,
+            // criamos um metódo que retorna o nome, o GetNome() e outro metódo para definir e mudar o 
+            // nome, SetNome(). Temos várias vantagens utilizando metódos para definir e modificar valores,
+            // por exemplo, podemos incluir uma lógica no metódo, como fizemos em SetNome().
+            // Supondo que não queremos que o preço possa ser modificados, é só definir apenas um metódo GET
+            // e não definir um SET, assim começamos a ter mais controle da nossa classe.
         }
     }
 }
