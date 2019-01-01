@@ -37,27 +37,53 @@ namespace Course
         // Inves de colocarmos as variáveis dentro do construtor de três argumentos, aproveitamos as variáveis
         // já definidas no construtor que leva dois argumentos, utilizando a palavra this e passando os parâmetros.
 
+        /*         
         public string GetNome()
         {
             return _nome;
-        }
+        } */
 
-        public void SetNome(string nome)
+        public string Nome
         {
-            if (nome != null && nome.Length > 1)
+            get { return _nome; }
+            set 
             {
-                _nome = nome;
+                if (value != null && value.Length > 1)
+                {
+                    _nome = value;
+                }
             }
         }
+        // Criação de uma PROPRIEDADE, dentro dela definimos o get e o set.
+        // Não precisamos passar um argumento, como faziamos antes com o SetNome(). Invés disso,
+        // utilizamos o value para obter o valor passado para a propriedade.
 
-        public double GetPreco()
+        // public void SetNome(string nome)
+        // {
+        //     if (nome != null && nome.Length > 1)
+        //     {
+        //         _nome = nome;
+        //     }
+        // }
+
+        // public double GetPreco()
+        // {
+        //     return _preco;
+        // }
+
+        public double Preco
         {
-            return _preco;
+            get { return _preco; }
         }
 
-        public double GetQuantidade()
+        // public double GetQuantidade()
+        // {
+        //     return _quantidade;
+        // }
+
+        public int Quantidade
         {
-            return _quantidade;
+            get { return _quantidade; }
         }
 
         public double ValorTotalEstoque()
@@ -121,15 +147,17 @@ namespace Course
             // se tivermos um construtor definido, precisaremos de criar um que leve 0 argumentos para poder
             // utilizar essa sintaxe.
 
-            Console.WriteLine("Dados do produto: {0}, {1}, {2}", p.GetNome(), p.GetPreco(), p.GetQuantidade());
+            Console.WriteLine("Dados do produto: {0}, {1}, {2}", p.Nome, p.Preco, p.Quantidade);
 
-            p.SetNome("TV 4K"); // Alterando o nome da instância da classe, com o metódo SetNome()
+            // p.SetNome("TV 4K"); // Alterando o nome da instância da classe, com o metódo SetNome()
+            p.Nome = "TV 4K"; // Podemos definir o nome de forma mais fácil com uma propriedade.
+            // Definimos propriedades para Preco, Nome e Quantidade.
 
             p.AdicionarProdutos(5);
-            Console.WriteLine(p.GetNome());
+            Console.WriteLine(p.Nome);
 
             p.RemoverProdutos(5);
-            Console.WriteLine(p.GetNome());
+            Console.WriteLine(p.Nome);
 
             // Como nossa quantidade está como public, um usuário pode tranquilamente
             // digitar p.Quantidade = -10 e isso irá funcionar. Para impedir isso, utilizamos
@@ -144,6 +172,13 @@ namespace Course
             // por exemplo, podemos incluir uma lógica no metódo, como fizemos em SetNome().
             // Supondo que não queremos que o preço possa ser modificados, é só definir apenas um metódo GET
             // e não definir um SET, assim começamos a ter mais controle da nossa classe.
+
+            // PROPRIEDADES: São definições de metódos encapsulados, porém com uma sintaxe similar
+            // à de atributos e não de metódos. Ou seja, a propriedade é flexível para ler, modificar e
+            // gravar o valor de um atributo particular. São consideradas metódos especiais, chamados de
+            // "acessadores".
+            // Definimos a propriedade Nome, assim, podemos chamar ou mudar o nome de forma muito mais fácil
+            // e intuitivo, utilizando apenas "Nome", inves de GetNome() ou SetNome().
         }
     }
 }
