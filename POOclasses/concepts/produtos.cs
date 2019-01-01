@@ -6,8 +6,11 @@ namespace Course
     class Produto
     {
         private string _nome;
-        private double _preco;
-        private int _quantidade;
+        public double Preco { get; private set; }
+        public int Quantidade { get; private set; }
+        // Quando não precisamos de definir uma lógica (como fizemos para o nome), podemos
+        // utilizar uma AUTO PROPRIEDADE, no caso de preço, definimos Preco e Quantidade diretamente
+        // com um metódo get publico e um metódo set privado.
 
         public Produto()
         {
@@ -17,8 +20,8 @@ namespace Course
         public Produto(string nome, double preco)
         {
             _nome = nome;
-            _preco = preco;
-            _quantidade = 0; // Essa linha é dispensável, automaticamente, a quantidade seria 0
+            Preco = preco;
+            Quantidade = 0; // Essa linha é dispensável, automaticamente, a quantidade seria 0
             // de qualquer forma.
         }
         // Utilizamos o conceito de SOBRECARGA para o nosso construtor. Sobrecarga consiste em
@@ -29,7 +32,7 @@ namespace Course
 
         public Produto(string nome, double preco, int quantidade) : this(nome, preco)
         {
-            _quantidade = quantidade;
+            Quantidade = quantidade;
         }
         // Definição do CONSTRUTOR da nossa classe. Definimos que para criar uma instância
         // da classe Produto, precisamos passar estes três parâmetros.
@@ -71,43 +74,43 @@ namespace Course
         //     return _preco;
         // }
 
-        public double Preco
-        {
-            get { return _preco; }
-        }
+        // public double Preco
+        // {
+        //     get { return _preco; }
+        // }
 
         // public double GetQuantidade()
         // {
         //     return _quantidade;
         // }
 
-        public int Quantidade
-        {
-            get { return _quantidade; }
-        }
+        // public int Quantidade
+        // {
+        //     get { return _quantidade; }
+        // }
 
         public double ValorTotalEstoque()
         {
-            return (_quantidade * _preco);
+            return (Quantidade * Preco);
         }
 
         public void AdicionarProdutos(int qte)
         {
-            _quantidade += qte;
+            Quantidade += qte;
         }
 
         public void RemoverProdutos(int qte)
         {
-            _quantidade -= qte;
+            Quantidade -= qte;
         }
         
         public override string ToString()
         {
             return _nome + 
             ", $" + 
-            _preco + 
+            Preco + 
             ", " + 
-            _quantidade + 
+            Quantidade + 
             " unidades, Total: $" + 
             ValorTotalEstoque();
         }
