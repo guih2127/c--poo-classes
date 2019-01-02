@@ -26,6 +26,41 @@ namespace Course
 
             p = new Point(); // Ainda assim, podemos utilizar o new para criar um novo struct.
             Console.WriteLine(p);
+
+            double? x = null; // Declaração de valor nullable, possui os metodos GetValueOrDefault, HasValue e Value.
+            // NULLABLE: Recurso do C# para que dados do tipo valor (structs) possam receber o value null. Tem seu uso comum em campos de banco que podem
+            // ser nulos ou dados e parâmetros que sejam opcionais.
+
+            double? y = 10.0;
+
+            Console.WriteLine(x.GetValueOrDefault()); // Pega o valor e, se não exisir, pega o valor padrão da variável (padrão de double = 0)
+            Console.WriteLine(y.GetValueOrDefault()); // Aqui, no caso, ele pega o valor (10)
+
+            Console.WriteLine(x.HasValue); // Retorna False, pois não tem valor.
+            Console.WriteLine(y.HasValue); // Retorna True, pois tem valor.
+
+
+            if (x.HasValue)
+            {
+                Console.WriteLine(x.Value); // Lança uma excessão, pois o valor é Null
+            }
+            else
+            {
+                Console.WriteLine("X is null.");
+            }
+
+            if (y.HasValue)
+            {
+                Console.WriteLine(y.Value); // Obtém o valor, que é 10.
+            }
+            else
+            {
+                Console.WriteLine("Y is null.");
+            }
+
+            // OPERADOR DE COALESCENCIA NULA: Atribui o valor de uma variável a outra, porém se a variável for nula, atribui um outro valor definido.
+            y = x ?? 5.0; // No caso, passa o valor 5
+            Console.WriteLine(y);
         }
     }
 }
