@@ -182,6 +182,22 @@ namespace Course
             // "acessadores".
             // Definimos a propriedade Nome, assim, podemos chamar ou mudar o nome de forma muito mais fácil
             // e intuitivo, utilizando apenas "Nome", inves de GetNome() ou SetNome().
+
+            int n = int.Parse(Console.ReadLine());
+
+            Produto[] vect = new Produto[n]; // Exemplo da criação de um vetor de produtos.
+
+            for (int i = 0; i < n; i++)
+            {
+                string name = Console.ReadLine();
+                double price = double.Parse(Console.ReadLine());
+                vect[i] = new Produto(name, price); // Instanciamos um novo produto dentro da instancia do vetor
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(vect[i]);
+            }
         }
     }
 }
