@@ -3,29 +3,29 @@ using System.Globalization;
 
 namespace Course
 {
-	struct Point
-	{
-		public double X;
-		public double Y;
+    struct Point
+    {
+        public double X;
+        public double Y;
 
-		public override string ToString()
-		{
-			return $"({X}, {Y})";
-		}
-	}
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
+        }
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
-        	Point p;
-        	p.X = 10;
-        	p.Y = 20;
-        	Console.WriteLine(p);
-        	// não é necessário fazer New Point.. etc, structs são tipo value. (Tipos referencia NECESSITAM utilizar o new)
+            Point p;
+            p.X = 10;
+            p.Y = 20;
+            Console.WriteLine(p);
+            // não é necessário fazer New Point.. etc, structs são tipo value. (Tipos referencia NECESSITAM utilizar o new)
 
-        	p = new Point(); // Ainda assim, podemos utilizar o new para criar um novo struct.
-        	Console.WriteLine(p);
+            p = new Point(); // Ainda assim, podemos utilizar o new para criar um novo struct.
+            Console.WriteLine(p);
         }
     }
 }
@@ -40,3 +40,10 @@ namespace Course
 // pois ambas fazem referencia para a mesma instancia.
 // Obs: Tipos referencia aceitam o valor NULL, tipos valor não.
 // VALORES PADRÃO: Valores padrão criados com o New. Numeros - 0, bool - False, char: cod. 0, objeto: Null. 
+
+// GARBAGE COLLECTOR e Desalocação por ESCOPO LOCAL
+// É importante saber que os tipo de memória primitivos (int, double) são armazenados no STACK, e tipos de memória mais
+// complexos, como objetos, no HEAP. É importante saber que para cada objeto no heap, temos um PONTEIRO no stack que faz 
+// referencia à essa instancia.
+// O Garbage Collector monitora os objetos alocados dinamicamente pelo programa (no heap) e desaloca os que não são mais utilizados (perdem referencia).
+// A desalocação por escopo local acontece na entrada e na saida de um escopo, onde variáveis são alocadas e desalocadas.
